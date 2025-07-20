@@ -1,0 +1,18 @@
+TJ Project Summary: Purpose
+
+---
+
+Purpose of the Project
+
+The purpose of this project was to simulate a live data stream into a relational database and build a real-time operational dashboard to visualize key manufacturing performance metrics.
+
+This mirrors the kind of scenario you'd encounter in a smart factory or IoT-enabled industrial setup, where machinery sends data to a central server every second, and business users or engineers need to monitor performance visually.
+
+Key goals included:
+- Creating a realistic, live data feed using SQL automation
+- Storing production-level information including materials in/out, losses, quality metrics, and machine stats
+- Visualizing KPIs like average temperature, input/output flow, and product completion in real-time using Power BI
+- Learning how to manage, control, and stop infinite data streams responsibly
+- Gaining hands-on experience combining SQL + Power BI for dynamic, time-series analysis
+
+Ultimately, the project was designed to be a miniature real-time data ecosystem — built entirely from scratch — that demonstrates technical capability, automation skills, and reporting proficiency.

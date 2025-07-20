@@ -1,0 +1,48 @@
+TJ Project Summary: What I Did
+
+---
+
+👨‍💻 What I Did in the Project
+
+This project was a full-cycle simulation of a real-time operational data environment. Here’s exactly what I built and implemented:
+
+1. 🛠 Designed the Backend in MySQL
+- Created a new database: TJ
+- Designed and built a TJ table to store:
+  - Timestamp (T)
+  - Machine usage metrics (Load_Use, Temperature)
+  - Material flow (Material_In, Material_Out, Loss)
+  - Product classifications (Red, Green, Blue)
+  - Quality data (Damaged)
+  - Running totals for each metric (cumulative fields)
+
+2. 🔁 Wrote a Live Data Simulation Procedure
+- Created a stored procedure insert_loop() that:
+  - Runs infinitely
+  - Inserts one new row every 1 second
+  - Uses RAND() to simulate fluctuating machine inputs and quality outcomes
+  - Uses IFNULL(SUM(...)) to track cumulative counts
+  - Uses SLEEP(1) to pace the inserts in real time
+
+3. 👁 Monitored the Data Flow
+- Used:
+  SELECT * FROM tj ORDER BY T DESC LIMIT 1;
+  to check if data was being generated every second
+- Controlled and stopped the loop safely via:
+  - Killing the session
+  - Restarting MySQL Workbench
+
+4. 📊 Connected to Power BI for Visualization
+- Connected the TJ table to Power BI
+- Built a fully functional dashboard:
+  - Gauges for real-time average temperature and load
+  - Line + Column Combo Chart for tracking Red, Green, Blue, Completed, and Damaged units over time
+  - Stacked Column Chart for visualizing Material In, Out, and Loss
+- Added timestamp-based filters and visual formatting
+- Refreshed the report manually (or switched to DirectQuery for continuous feed)
+
+🔧 Tools Used:
+- MySQL Workbench
+- SQL stored procedures
+- Power BI Desktop
+- Power BI visual customization (gauges, line/bar charts, time filters)

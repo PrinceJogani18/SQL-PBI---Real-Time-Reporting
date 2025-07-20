@@ -1,0 +1,60 @@
+TJ Project: Detailed Reference Report for Self-Use
+
+---
+
+Objective
+To build a simple but powerful real-time manufacturing data simulation using SQL and visualize it using Power BI.
+
+---
+
+Step-by-Step Explanation (Simple Language)
+
+1. Created a Database and Table in MySQL
+CREATE DATABASE TJ;
+- This gave me a clean workspace
+
+CREATE TABLE TJ (...);
+- I created a table to store each second's data — things like load usage, temperature, materials going in and out, and how many units were red, green, blue, or damaged.
+
+2. Created a Stored Procedure (insert_loop)
+- This procedure is a kind of loop that runs forever unless manually stopped
+- Every second it:
+  - Picks random values (using RAND()) to simulate real-world data
+  - Calculates input and output material
+  - Tracks how many units are red/green/blue or damaged
+  - Updates running totals (using SUM() and IFNULL())
+  - Waits one second using DO SLEEP(1);
+
+3. Started the Loop
+CALL insert_loop();
+- I manually called the procedure to start data streaming
+- Each row inserted represented one second in a live production environment
+- I stopped the loop when needed by restarting MySQL Workbench or killing the session
+
+4. Monitored Insertions
+SELECT * FROM TJ ORDER BY T DESC LIMIT 1;
+- This helped me check if the loop was working and inserting rows correctly
+
+5. Power BI Connection and Visualization
+- I connected Power BI to MySQL
+- Built gauges for temperature and load
+- Created time-series visuals showing colors completed, damaged units, and material flow
+- Added custom formatting for clarity
+- Set manual refresh or used DirectQuery for near real-time data viewing
+
+---
+
+Key Concepts I Practiced
+- Stored Procedures
+- Infinite Loops
+- Live Data Simulation
+- Time-Series Visualization in Power BI
+- SQL Functions (RAND, SUM, IFNULL, FLOOR)
+
+---
+
+Real-World Use Case
+This is like how factories or sensors push machine data every second. I simulated that system using pure SQL and made it visual in Power BI. It’s simple, real-time, and useful for live dashboards.
+
+In One Line:
+"I built a real-time manufacturing data simulator using MySQL and visualized it in Power BI using automated inserts and timestamp-based analytics."
